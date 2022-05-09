@@ -27,6 +27,7 @@ node() {
                         rm -rf ansible/content-editor.zip
                         rm -rf content-editor
                         node -v
+                        sudo apt-get install libpng-dev
                         npm install
                         cd app
                         bower cache clean
