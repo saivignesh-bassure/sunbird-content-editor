@@ -142,5 +142,8 @@
   "bugs": {
     "url": "https://github.com/ekstep/Content-Editor/issues"
   },
+  "overrides": {
+    "graceful-fs": "^4.2.9"
+  },
   "homepage": "https://github.com/ekstep/Content-Editor#readme"
 }
