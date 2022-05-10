@@ -395,9 +395,15 @@ gulp.task('packageCorePluginsDev', ["minifyCorePlugins"], function() {
             manifest.editor.dependencies.forEach(function(dependency) {
                 var resource = '/plugins/' + plugin + '/' + dependency.src;
                 if (dependency.type == 'js') {
-                    fs.appendFile('app/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'js')" + "\n");
+                    fs.appendFile('app/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'js')" + "\n", (err) => {
+                          if (err) throw err;
+                          console.log('The "data to append" was appended to file!');
+                    });
                 } else if (dependency.type == 'css') {
-                    fs.appendFile('app/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'css')" + "\n");
+                    fs.appendFile('app/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'css')" + "\n", (err) => {
+                          if (err) throw err;
+                          console.log('The "data to append" was appended to file!');
+                    });
                 }
             });
         }
@@ -424,14 +430,23 @@ gulp.task('packageCorePlugins', ["minifyFramework", "minifyBaseEditor", "minifyC
                 var resource = '/content-plugins/' + plugin + '/' + dependency.src;
                 //var resource = '/plugins/' + plugin + '/' + dependency.src;
                 if (dependency.type == 'js') {
-                    fs.appendFile('content-editor/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'js')" + "\n");
+                    fs.appendFile('content-editor/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'js')" + "\n", (err) => {
+                          if (err) throw err;
+                          console.log('The "data to append" was appended to file!');
+                    });
                 } else if (dependency.type == 'css') {
-                    fs.appendFile('content-editor/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'css')" + "\n");
+                    fs.appendFile('content-editor/scripts/coreplugins.js', "org.ekstep.pluginframework.resourceManager.loadExternalResource('" + resource + "', 'css')" + "\n", (err) => {
+                          if (err) throw err;
+                          console.log('The "data to append" was appended to file!');
+                    });
                 }
             });
         }
         var plugin = fs.readFileSync('plugins/' + plugin + '/editor/plugin.min.js', 'utf8');
-        fs.appendFile('content-editor/scripts/coreplugins.js', 'org.ekstep.pluginframework.pluginManager.registerPlugin(' + JSON.stringify(manifest) + ',eval(\'' + plugin.replace(/'/g, "\\'") + '\'))' + '\n');
+        fs.appendFile('content-editor/scripts/coreplugins.js', 'org.ekstep.pluginframework.pluginManager.registerPlugin(' + JSON.stringify(manifest) + ',eval(\'' + plugin.replace(/'/g, "\\'") + '\'))' + '\n', (err) => {
+                          if (err) throw err;
+                          console.log('The "data to append" was appended to file!');
+                    });
     });
     return gulp.src('plugins/**/plugin.min.js', {
         read: false
