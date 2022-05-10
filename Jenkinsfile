@@ -26,7 +26,7 @@ node() {
                         export CHROME_BIN=google-chrome
                         rm -rf ansible/content-editor.zip
                         rm -rf content-editor
-                        #nvm use 11.15.0
+                        nvm use 11.15.0
                         node -v
                         sudo apt-get install libpng-dev
                         npm install
