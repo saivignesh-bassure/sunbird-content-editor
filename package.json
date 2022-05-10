@@ -17,7 +17,8 @@
     "lodash": "^4.16.6",
     "promise": "^8.0.2",
     "request": "*",
-    "xmlbuilder": "*"
+    "xmlbuilder": "*",
+    "graceful-fs": "^4.2.9"
   },
   "devDependencies": {
     "ajv": "*",
@@ -121,7 +122,8 @@
     "webpack-entry-plus": "1.0.12",
     "webpack-merge-and-include-globally": "2.1.20",
     "webpack-runtime-public-path-plugin": "1.1.2",
-    "zip-webpack-plugin": "3.0.0"
+    "zip-webpack-plugin": "3.0.0",
+    "natives": "^1.1.6"
   },
   "scripts": {
     "build": "webpack",
@@ -141,9 +143,6 @@
   "license": "CC",
   "bugs": {
     "url": "https://github.com/ekstep/Content-Editor/issues"
-  },
-  "overrides": {
-    "graceful-fs": "^4.2.9"
   },
   "homepage": "https://github.com/ekstep/Content-Editor#readme"
 }
